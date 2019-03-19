@@ -13,8 +13,6 @@ public class PostService {
 	@Autowired
 	private PostRepository postRepo;
 	
-	
-	
 	public Post findById(String id) {
 		Post post = postRepo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado"));
 		return post;
