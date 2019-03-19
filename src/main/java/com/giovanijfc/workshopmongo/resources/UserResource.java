@@ -51,4 +51,12 @@ public class UserResource {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> delete(@RequestBody UserDTO objDto, @PathVariable String id){
+		User obj = userService.fromDTO(objDto);
+		obj.setId(id);
+		obj = userService.update(obj);
+		return ResponseEntity.noContent().build();
+	}
+	
 }
