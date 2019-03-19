@@ -27,4 +27,12 @@ public class UserService {
 		User user = userRepo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado"));
 		return user;
 	}
+	
+	public User insert(User obj) {
+		return userRepo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+	}	
 }
